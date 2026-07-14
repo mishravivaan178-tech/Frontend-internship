@@ -1,0 +1,681 @@
+================================================================================
+                    BOOTSTRAP 5 USAGE DOCUMENTATION
+                    Artisan - Elevate Your Home Project
+================================================================================
+
+OVERVIEW
+================================================================================
+Bootstrap 5.3.0 is the foundational CSS framework used in this project to 
+provide responsive layout, UI components, and JavaScript functionality. This 
+document details every location where Bootstrap is utilized.
+
+
+BOOTSTRAP INTEGRATION
+================================================================================
+
+1. CDN LINKS (index.html)
+--------------------------------------------------------------------------------
+
+CSS Import (Line 8-9):
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+JavaScript Import (Line 464-465):
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+Note: Bootstrap Bundle includes Popper.js for interactive components.
+
+
+BOOTSTRAP COMPONENTS USED
+================================================================================
+
+1. NAVBAR (Lines 20-51)
+--------------------------------------------------------------------------------
+
+HTML Structure:
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#home">Home</a>
+
+Bootstrap Classes Used:
+- navbar                    → Base navbar component
+- navbar-expand-lg         → Responsive collapse at 992px breakpoint
+- fixed-top                → Sticky positioning at viewport top
+- navbar-toggler           → Mobile hamburger button
+- collapse navbar-collapse → Collapsible menu container
+- navbar-nav               → Navigation list container
+- nav-item                 → Individual navigation item
+- nav-link                 → Navigation link styling
+- active                   → Current page indicator
+
+JavaScript Functionality:
+- data-bs-toggle="collapse"    → Triggers collapse
+- data-bs-target="#navbarNav"  → Target element to collapse
+- Automatic mobile menu toggle on click
+
+Custom Styling Applied (style.css):
+- Custom padding and shadows
+- Scroll effect (shrinks on scroll)
+- Underline hover animation
+- Brand color customization
+
+
+2. GRID SYSTEM (Throughout the page)
+--------------------------------------------------------------------------------
+
+Container Classes:
+<div class="container">        → Centered container with max-width
+<div class="container-fluid">  → Full-width container (not used)
+
+Row Classes:
+<div class="row g-4">         → Row with gutters (spacing)
+<div class="row g-3">         → Smaller gutters
+<div class="row g-5">         → Larger gutters
+
+Column Classes (Responsive):
+<div class="col-lg-3 col-md-6">  → 25% on large, 50% on medium, 100% on small
+<div class="col-lg-4 col-md-6">  → 33% on large, 50% on medium, 100% on small
+<div class="col-md-4">           → 33% on medium+, 100% on small
+<div class="col-12">             → 100% width always
+
+Breakpoint System:
+- xs: < 576px   (mobile phones - default)
+- sm: ≥ 576px   (large phones)
+- md: ≥ 768px   (tablets)
+- lg: ≥ 992px   (desktops)
+- xl: ≥ 1200px  (large desktops)
+- xxl: ≥ 1400px (extra large screens)
+
+Gutter Sizes:
+- g-0  → No gutters
+- g-1  → 0.25rem (4px)
+- g-2  → 0.5rem (8px)
+- g-3  → 1rem (16px)
+- g-4  → 1.5rem (24px)
+- g-5  → 3rem (48px)
+
+Usage Locations:
+- Featured Categories section (6 cards)
+- Featured Products section (8 products)
+- Why Choose Us section (3 features)
+- Footer columns (4 sections)
+
+
+3. CAROUSEL (Lines 53-95)
+--------------------------------------------------------------------------------
+
+HTML Structure:
+<div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active" style="background-image: url(...)">
+            <div class="carousel-caption d-flex align-items-center h-100">
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+
+Bootstrap Classes Used:
+- carousel              → Base carousel component
+- slide                 → Slide transition animation
+- carousel-indicators  → Dot indicators at bottom
+- carousel-inner       → Wrapper for slides
+- carousel-item        → Individual slide
+- carousel-caption     → Text overlay on slide
+- carousel-control-prev/next → Navigation arrows
+- active               → Initially visible slide
+
+JavaScript Initialization (script.js lines 227-233):
+const carousel = new bootstrap.Carousel(heroCarousel, {
+    interval: 5000,  // Auto-play every 5 seconds
+    wrap: true       // Continuous loop
+});
+
+Data Attributes:
+- data-bs-ride="carousel"      → Auto-play enabled
+- data-bs-target               → Target carousel ID
+- data-bs-slide-to="0"         → Go to specific slide
+- data-bs-slide="prev"         → Previous slide
+- data-bs-slide="next"         → Next slide
+
+Custom Styling Applied (style.css):
+- Full viewport height (85vh)
+- Gradient overlay for text readability
+- Custom caption positioning
+- Button styling
+
+
+4. CARDS (Custom implementation based on Bootstrap concept)
+--------------------------------------------------------------------------------
+
+While not using Bootstrap's .card class directly, the project uses Bootstrap's 
+card concept with custom styling:
+
+Product Cards:
+<div class="product-card">
+    <div class="product-image-wrapper">
+    <div class="product-info">
+
+Category Cards:
+<div class="category-card">
+    <div class="category-overlay">
+    <div class="category-info">
+
+Feature Cards:
+<div class="feature-card">
+    <div class="feature-icon">
+
+Bootstrap Concept Applied:
+- Card-like structure with image + content
+- Grid layout for responsive display
+- Custom shadows and hover effects
+- Rounded corners and borders
+
+
+5. FORMS (Contact section in footer)
+--------------------------------------------------------------------------------
+
+HTML Structure:
+<form id="contactForm">
+    <label class="form-label" for="firstName">First Name *</label>
+    <input type="text" class="form-control" id="firstName" required>
+    <textarea class="form-control" id="message" rows="6" required></textarea>
+    <button type="submit" class="btn btn-submit">Send Message</button>
+
+Bootstrap Classes Used:
+- form-control    → Input/textarea styling
+- form-label      → Label styling
+- form-select     → Select dropdown styling
+- btn             → Base button class
+- btn-submit      → Custom button variant
+
+Form Features:
+- Built-in HTML5 validation (required attribute)
+- Responsive input sizing
+- Focus states with custom colors
+- Custom padding and borders
+
+
+6. BUTTONS
+--------------------------------------------------------------------------------
+
+Bootstrap Button Classes:
+<button class="btn btn-primary-custom">     → Custom primary button
+<button class="btn btn-add-to-cart">        → Custom add to cart
+<button class="btn btn-submit">             → Form submit button
+
+Base Class:
+- btn → Base button styling (padding, border, cursor)
+
+Custom Variants (style.css):
+- btn-primary-custom → Brown background, white text, rounded
+- btn-add-to-cart    → Full width, hover effects
+- btn-submit         → Form submission button
+
+
+7. BREADCRUMB (Available but not used in single-page)
+--------------------------------------------------------------------------------
+
+Would use:
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item active">Current Page</li>
+
+Bootstrap Classes:
+- breadcrumb       → Breadcrumb container
+- breadcrumb-item  → Individual item
+- active           → Current page indicator
+
+
+BOOTSTRAP UTILITY CLASSES USED
+================================================================================
+
+1. SPACING UTILITIES
+--------------------------------------------------------------------------------
+
+Padding:
+- p-3  → Padding all sides (1rem)
+- p-4  → Padding all sides (1.5rem)
+- px-3 → Padding left/right
+- py-3 → Padding top/bottom
+- pt-5 → Padding top (3rem)
+- pb-5 → Padding bottom (3rem)
+
+Margin:
+- m-0   → No margin
+- mb-3  → Margin bottom (1rem)
+- mt-4  → Margin top (1.5rem)
+- mx-auto → Center horizontally (margin left/right auto)
+- my-5  → Margin top/bottom (3rem)
+
+Gutters (Grid spacing):
+- g-3  → Grid gutters (1rem)
+- g-4  → Grid gutters (1.5rem)
+- g-5  → Grid gutters (3rem)
+- gx-4 → Horizontal gutters only
+- gy-4 → Vertical gutters only
+
+
+2. DISPLAY UTILITIES
+--------------------------------------------------------------------------------
+
+- d-flex    → Display: flex
+- d-block   → Display: block
+- d-none    → Display: none (hidden)
+- d-inline  → Display: inline
+
+Responsive Display:
+- d-md-block    → Block on medium+ screens
+- d-lg-none     → Hidden on large+ screens
+- d-sm-flex     → Flex on small+ screens
+
+
+3. FLEXBOX UTILITIES
+--------------------------------------------------------------------------------
+
+Alignment:
+- align-items-center       → Vertical center alignment
+- align-items-start        → Align to top
+- align-items-end          → Align to bottom
+- justify-content-center   → Horizontal center
+- justify-content-between  → Space between items
+- justify-content-around   → Space around items
+
+Direction:
+- flex-column     → Vertical flex direction
+- flex-row        → Horizontal flex direction (default)
+- flex-wrap       → Allow wrapping
+
+Gap:
+- gap-2  → Gap between flex items (0.5rem)
+- gap-3  → Gap between flex items (1rem)
+
+
+4. TEXT UTILITIES
+--------------------------------------------------------------------------------
+
+Alignment:
+- text-center  → Center text
+- text-start   → Left align text
+- text-end     → Right align text
+
+Colors:
+- text-white   → White text color
+- text-muted   → Muted gray text
+- text-primary → Primary color text
+
+Transform:
+- text-uppercase  → Uppercase text
+- text-lowercase  → Lowercase text
+- text-capitalize → Capitalize first letter
+
+Weight:
+- fw-bold    → Bold text
+- fw-normal  → Normal weight
+- fst-italic → Italic text
+
+
+5. SIZING UTILITIES
+--------------------------------------------------------------------------------
+
+Width:
+- w-25   → Width 25%
+- w-50   → Width 50%
+- w-75   → Width 75%
+- w-100  → Width 100%
+
+Height:
+- h-25   → Height 25%
+- h-50   → Height 50%
+- h-75   → Height 75%
+- h-100  → Height 100%
+
+Viewport:
+- vw-100 → Viewport width 100%
+- vh-100 → Viewport height 100%
+
+
+6. BORDER UTILITIES
+--------------------------------------------------------------------------------
+
+- border        → Add border
+- border-0      → Remove border
+- border-top    → Top border only
+- rounded       → Rounded corners
+- rounded-circle → Circle shape
+- rounded-pill  → Pill shape (fully rounded)
+
+
+7. SHADOW UTILITIES
+--------------------------------------------------------------------------------
+
+- shadow-none → No shadow
+- shadow-sm   → Small shadow
+- shadow      → Default shadow
+- shadow-lg   → Large shadow
+
+
+8. POSITION UTILITIES
+--------------------------------------------------------------------------------
+
+- position-relative → Relative positioning
+- position-absolute → Absolute positioning
+- position-fixed    → Fixed positioning
+- top-0            → Position at top
+- bottom-0         → Position at bottom
+- start-0          → Position at left
+- end-0            → Position at right
+
+
+BOOTSTRAP JAVASCRIPT COMPONENTS
+================================================================================
+
+1. CAROUSEL (script.js lines 227-233)
+--------------------------------------------------------------------------------
+
+Initialization:
+const carousel = new bootstrap.Carousel(element, {
+    interval: 5000,  // Auto-play interval
+    wrap: true,      // Loop continuously
+    keyboard: true,  // Keyboard navigation
+    pause: 'hover'   // Pause on hover
+});
+
+Methods Available:
+- carousel.next()       → Go to next slide
+- carousel.prev()       → Go to previous slide
+- carousel.pause()      → Pause auto-play
+- carousel.cycle()      → Resume auto-play
+- carousel.to(index)    → Go to specific slide
+- carousel.dispose()    → Destroy carousel
+
+Events:
+- slide.bs.carousel     → Fires before slide
+- slid.bs.carousel      → Fires after slide
+
+
+2. COLLAPSE (Navbar mobile menu)
+--------------------------------------------------------------------------------
+
+Data Attributes:
+data-bs-toggle="collapse"      → Trigger collapse
+data-bs-target="#navbarNav"    → Target element
+
+JavaScript (automatic):
+- No manual initialization needed
+- Bootstrap handles toggle automatically
+- Adds/removes .show class
+
+Methods Available:
+- collapse.toggle()   → Toggle visibility
+- collapse.show()     → Show element
+- collapse.hide()     → Hide element
+
+Events:
+- show.bs.collapse    → Fires before showing
+- shown.bs.collapse   → Fires after shown
+- hide.bs.collapse    → Fires before hiding
+- hidden.bs.collapse  → Fires after hidden
+
+
+BOOTSTRAP GRID SYSTEM DETAILED USAGE
+================================================================================
+
+Featured Categories Section:
+--------------------------------------------------------------------------------
+<div class="row g-4">
+    <div class="col-lg-4 col-md-6">  <!-- 6 categories total -->
+        <!-- Card content -->
+    </div>
+</div>
+
+Layout Behavior:
+- Large screens (≥992px):  3 columns per row (33% width)
+- Medium screens (≥768px): 2 columns per row (50% width)
+- Small screens (<768px):  1 column per row (100% width)
+
+Result: 2 rows on desktop, 3 rows on tablet, 6 rows on mobile
+
+
+Featured Products Section:
+--------------------------------------------------------------------------------
+<div class="row g-4">
+    <div class="col-lg-3 col-md-6">  <!-- 8 products total -->
+        <!-- Product card -->
+    </div>
+</div>
+
+Layout Behavior:
+- Large screens (≥992px):  4 columns per row (25% width)
+- Medium screens (≥768px): 2 columns per row (50% width)
+- Small screens (<768px):  1 column per row (100% width)
+
+Result: 2 rows on desktop, 4 rows on tablet, 8 rows on mobile
+
+
+Why Choose Us Section:
+--------------------------------------------------------------------------------
+<div class="row g-4">
+    <div class="col-lg-4 col-md-6">  <!-- 3 features total -->
+        <!-- Feature card -->
+    </div>
+</div>
+
+Layout Behavior:
+- Large screens (≥992px):  3 columns per row (33% width)
+- Medium screens (≥768px): 2 columns per row (50% width)
+- Small screens (<768px):  1 column per row (100% width)
+
+Result: 1 row on desktop, 2 rows on tablet, 3 rows on mobile
+
+
+Footer Section:
+--------------------------------------------------------------------------------
+<div class="row g-4">
+    <div class="col-lg-4 col-md-6">  <!-- Company info -->
+    <div class="col-lg-2 col-md-6">  <!-- Quick links -->
+    <div class="col-lg-2 col-md-6">  <!-- Categories -->
+    <div class="col-lg-4 col-md-6">  <!-- Contact details -->
+</div>
+
+Layout Behavior:
+- Large screens: 4 columns (33% + 17% + 17% + 33%)
+- Medium screens: 2 columns (50% + 50%)
+- Small screens: 1 column (100% stacked)
+
+
+BOOTSTRAP RESPONSIVE BREAKPOINTS
+================================================================================
+
+Breakpoint Definitions:
+--------------------------------------------------------------------------------
+- xs (extra small):  0px - 575px      → Mobile phones (portrait)
+- sm (small):        576px - 767px    → Mobile phones (landscape)
+- md (medium):       768px - 991px    → Tablets
+- lg (large):        992px - 1199px   → Desktops
+- xl (extra large):  1200px - 1399px  → Large desktops
+- xxl (extra extra): 1400px+          → Extra large screens
+
+Container Max-Widths:
+- sm: 540px
+- md: 720px
+- lg: 960px
+- xl: 1140px
+- xxl: 1320px
+
+Usage in Project:
+--------------------------------------------------------------------------------
+.col-md-6       → 50% width on tablets and up
+.col-lg-3       → 25% width on desktops and up
+.col-lg-4       → 33% width on desktops and up
+.navbar-expand-lg → Navbar collapses below 992px
+
+
+BOOTSTRAP ICONS vs FONT AWESOME
+================================================================================
+
+Bootstrap Icons (NOT used in this project):
+- Bootstrap has its own icon library
+- Would use: <i class="bi bi-house"></i>
+
+This project uses Font Awesome instead:
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+Font Awesome usage:
+<i class="fas fa-search"></i>      → Solid icon
+<i class="far fa-star"></i>        → Regular icon
+<i class="fab fa-facebook-f"></i>  → Brand icon
+
+
+WHAT'S NOT BOOTSTRAP (CUSTOM CSS)
+================================================================================
+
+Custom Styling in style.css:
+--------------------------------------------------------------------------------
+
+1. Color System:
+   - CSS Custom Properties (--primary-brown, --dark-brown, etc.)
+   - Luxury furniture color palette
+   - Gradient overlays
+
+2. Typography:
+   - Custom font-family (Segoe UI)
+   - Custom font weights
+   - Letter spacing
+
+3. Animations:
+   - Hover effects (transform, scale, rotate)
+   - Smooth transitions (0.3s ease)
+   - Custom keyframe animations
+   - Scroll-triggered animations
+
+4. Shadows & Depth:
+   - Custom box shadows (sm, md, lg)
+   - Custom border-radius (12px)
+   - 3D lift effects on hover
+
+5. Component Styling:
+   - Custom card designs
+   - Custom button styles
+   - Custom navbar effects
+   - Custom form inputs
+
+6. Layout Enhancements:
+   - Custom spacing beyond Bootstrap utilities
+   - Custom positioning
+   - Overlay effects
+
+
+BOOTSTRAP VERSION INFORMATION
+================================================================================
+
+Version: 5.3.0 (Latest stable as of 2024)
+Release Date: May 2023
+
+Key Features in 5.3.0:
+- Color modes (dark mode support)
+- Enhanced CSS variables
+- Improved RTL support
+- Updated components
+- Better accessibility
+
+Browser Support:
+- Chrome/Edge (last 2 versions)
+- Firefox (last 2 versions)
+- Safari (last 2 versions)
+- Opera (last 2 versions)
+- Mobile browsers (iOS Safari, Chrome Mobile)
+
+Internet Explorer: NOT supported (Bootstrap 5 dropped IE support)
+
+
+PERFORMANCE CONSIDERATIONS
+================================================================================
+
+Bootstrap CSS: ~194KB (minified: ~23KB gzipped)
+Bootstrap JS: ~63KB (minified: ~16KB gzipped)
+Total: ~257KB (minified: ~39KB gzipped)
+
+Optimization Strategies:
+1. Use CDN (Content Delivery Network) → Faster loading
+2. Only import needed components → Reduce file size
+3. Use Bootstrap's utility classes → Reduce custom CSS
+4. Leverage browser caching → CDN caching benefits
+
+Alternative (if performance is critical):
+- Use Bootstrap's Sass source
+- Import only needed components
+- Compile custom build
+- Remove unused CSS with PurgeCSS
+
+
+MIGRATION FROM BOOTSTRAP 4 TO 5
+================================================================================
+
+Key Differences (if upgrading):
+- jQuery removed (vanilla JavaScript only)
+- Popper.js updated to v2
+- Dropped IE support
+- New utility API
+- Enhanced grid system
+- Improved forms
+- Updated color palette
+
+This project uses Bootstrap 5 (no jQuery dependency).
+
+
+RESOURCES & DOCUMENTATION
+================================================================================
+
+Official Bootstrap Documentation:
+- Website: https://getbootstrap.com/
+- Docs: https://getbootstrap.com/docs/5.3/
+- Examples: https://getbootstrap.com/docs/5.3/examples/
+
+CDN Links:
+- CSS: https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css
+- JS: https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js
+
+Alternative CDNs:
+- cdnjs: https://cdnjs.com/libraries/twitter-bootstrap
+- unpkg: https://unpkg.com/browse/bootstrap@5.3.0/
+
+Community:
+- GitHub: https://github.com/twbs/bootstrap
+- Stack Overflow: Tag "bootstrap-5"
+- Discord: Bootstrap community
+
+
+CONCLUSION
+================================================================================
+
+Bootstrap 5.3.0 provides the structural foundation for this project:
+
+✅ Responsive grid system (12-column layout)
+✅ Navbar with mobile collapse
+✅ Carousel/slider component
+✅ Form styling and validation
+✅ Utility classes (spacing, display, flex, text)
+✅ JavaScript components (carousel, collapse)
+✅ Mobile-first responsive design
+✅ Cross-browser compatibility
+✅ Accessibility features (ARIA, keyboard nav)
+
+Custom CSS builds ON TOP of Bootstrap to create:
+✅ Premium furniture aesthetic
+✅ Luxury color scheme
+✅ Smooth animations and transitions
+✅ Brand-specific typography
+✅ Unique visual identity
+✅ Enhanced hover effects
+
+Together, Bootstrap + Custom CSS = Professional, responsive, premium website!
+
+================================================================================
+                    END OF BOOTSTRAP DOCUMENTATION
+================================================================================
