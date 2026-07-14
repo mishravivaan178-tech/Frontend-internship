@@ -1,0 +1,574 @@
+================================================================================
+                    ARTISAN - ELEVATE YOUR HOME
+                    Complete Code & Tech Stack Documentation
+================================================================================
+
+PROJECT OVERVIEW
+================================================================================
+Artisan is a premium furniture single-page website built with modern web 
+technologies. It features a clean, elegant design inspired by luxury furniture 
+brands with full responsiveness and interactive elements.
+
+
+TECHNOLOGY STACK
+================================================================================
+
+1. HTML5 (HyperText Markup Language 5)
+   - Purpose: Structure and content of the website
+   - Version: HTML5 (latest standard)
+   - Key Features Used:
+     * Semantic HTML elements (section, nav, footer, article)
+     * Custom data attributes (data-category, data-price)
+     * ARIA labels for accessibility
+     * Meta tags for SEO and responsive design
+
+2. CSS3 (Cascading Style Sheets 3)
+   - Purpose: Styling and visual presentation
+   - Version: CSS3 with modern features
+   - Key Features Used:
+     * CSS Custom Properties (Variables)
+     * Flexbox and Grid layouts
+     * Transitions and animations
+     * Media queries for responsiveness
+     * Box shadows and border-radius
+     * Gradient backgrounds
+     * Transform effects
+
+3. JavaScript (ES6+)
+   - Purpose: Interactivity and dynamic behavior
+   - Version: ECMAScript 6+ (Modern JavaScript)
+   - Key Features Used:
+     * Arrow functions
+     * Template literals
+     * Const and Let declarations
+     * DOM manipulation
+     * Event listeners
+     * Intersection Observer API
+     * Debounce functions
+     * Async/await patterns
+
+4. Bootstrap 5.3.0
+   - Purpose: Responsive grid system and UI components
+   - Version: 5.3.0 (Latest stable)
+   - Components Used:
+     * Navbar (fixed-top, responsive)
+     * Carousel (hero slider)
+     * Cards (products, categories, features)
+     * Grid system (12-column responsive)
+     * Forms (contact form)
+     * Buttons and utilities
+     * Breadcrumbs
+     * Modal components
+
+5. Font Awesome 6.4.0
+   - Purpose: Icon library
+   - Version: 6.4.0
+   - Icon Types Used:
+     * Solid icons (fas)
+     * Regular icons (far)
+     * Brand icons (fab)
+
+
+FILE STRUCTURE
+================================================================================
+
+Project Root/
+│
+├── index.html          # Main homepage (single page application)
+├── style.css           # Custom CSS styling
+├── script.js           # Custom JavaScript functionality
+└── EXPLANATION.txt     # This documentation file
+
+
+DETAILED CODE EXPLANATION
+================================================================================
+
+INDEX.HTML - Structure & Sections
+--------------------------------------------------------------------------------
+
+1. NAVBAR (Lines 20-51)
+   - Fixed-top navigation bar
+   - Responsive collapse for mobile
+   - Brand logo with accent color
+   - Navigation links with smooth scroll
+   - Search and cart icons with badges
+   - Automatically shrinks on scroll
+
+2. HERO SECTION (Lines 53-95)
+   - Full-screen carousel with 3 slides
+   - Overlay gradient for text readability
+   - Call-to-action buttons
+   - Auto-play functionality (5-second intervals)
+   - Navigation indicators and controls
+
+3. FEATURED CATEGORIES (Lines 98-173)
+   - 6 category cards in responsive grid
+   - Hover effects with image zoom
+   - Category overlay effects
+   - Click to scroll to products section
+   - Categories: Sofas, Beds, Dining Tables, Chairs, Wardrobes, Office Furniture
+
+4. FEATURED PRODUCTS (Lines 176-357)
+   - 8 product cards in responsive grid
+   - Product badges (New, Sale, Hot)
+   - Star ratings with review counts
+   - Price display with old price strikethrough
+   - Add to Cart button with animation
+   - Hover effects and transitions
+
+5. WHY CHOOSE US (Lines 360-405)
+   - 3 feature cards with icons
+   - Premium Quality, Fast Delivery, Customer Support
+   - Icon rotation on hover
+   - Descriptive text for each feature
+
+6. FOOTER (Lines 408-457)
+   - Company information and description
+   - Quick links navigation
+   - Category links
+   - Contact details with icons
+   - Social media icons (Facebook, Twitter, Instagram, Pinterest)
+   - Copyright notice
+
+
+STYLE.CSS - Styling & Design
+--------------------------------------------------------------------------------
+
+1. CSS VARIABLES (Lines 6-22)
+   - Centralized color scheme
+   - Consistent spacing and shadows
+   - Easy theme customization
+   
+   Color Palette:
+   - Primary Brown: #8B6F47 (main brand color)
+   - Dark Brown: #5C4A32 (darker accent)
+   - Light Brown: #D4A574 (lighter accent)
+   - Cream: #F5E6D3 (background highlights)
+   - White: #FFFFFF (main background)
+   - Text Dark: #2C2C2C (main text color)
+
+2. GLOBAL STYLES (Lines 24-50)
+   - Box-sizing reset
+   - Typography settings
+   - Link styling
+   - Image responsiveness
+
+3. NAVBAR STYLES (Lines 52-100)
+   - Smooth scroll effect
+   - Logo styling with accent
+   - Navigation link hover effects
+   - Underline animation on hover
+   - Icon hover effects
+   - Cart badge styling
+
+4. HERO CAROUSEL (Lines 102-160)
+   - Full-height slides (85vh)
+   - Gradient overlay
+   - Text positioning and shadows
+   - Button styling with hover effects
+   - Carousel control customization
+
+5. SECTION STYLES (Lines 162-200)
+   - Consistent padding (80px vertical)
+   - Section titles with decorative lines
+   - Centered headings
+
+6. CARD STYLES (Lines 202-350)
+   - Category cards with image zoom
+   - Product cards with badges
+   - Feature cards with icon circles
+   - Hover transformations (translateY)
+   - Box shadows for depth
+   - Rounded corners (12px border-radius)
+
+7. FOOTER STYLES (Lines 352-430)
+   - Dark brown background
+   - White text with opacity
+   - Link hover effects with padding
+   - Social icon circles with hover
+   - Contact info layout
+
+8. RESPONSIVE DESIGN (Lines 432-500)
+   - Breakpoints: 991px, 767px, 575px
+   - Mobile-first approach
+   - Adjusted font sizes
+   - Modified padding and margins
+   - Optimized carousel height
+   - Touch-friendly button sizes
+
+9. ANIMATIONS (Lines 502-520)
+   - FadeInUp animation
+   - Smooth transitions
+   - Scroll-to-top button
+   - Hover effect animations
+
+
+SCRIPT.JS - Functionality & Interactivity
+--------------------------------------------------------------------------------
+
+1. NAVBAR SCROLL EFFECT (Lines 7-16)
+   - Detects scroll position
+   - Adds 'scrolled' class when > 50px
+   - Shrinks navbar on scroll
+   - Performance optimized
+
+2. SCROLL TO TOP BUTTON (Lines 18-34)
+   - Shows button when scroll > 300px
+   - Smooth scroll to top
+   - Fade in/out animation
+
+3. ADD TO CART FUNCTIONALITY (Lines 36-65)
+   - Increments cart counter
+   - Button color change animation
+   - Success notification
+   - 2-second reset timer
+   - Updates cart badge
+
+4. NOTIFICATION SYSTEM (Lines 67-130)
+   - Dynamic notification creation
+   - Slide-in animation from right
+   - Auto-dismiss after 3 seconds
+   - Color-coded (success/info/error)
+   - Icon integration
+   - Stack management
+
+5. PRODUCT FILTERING (Lines 132-180)
+   - Category filter
+   - Price range filter
+   - Sort by options
+   - Smooth fade animations
+   - Real-time filtering
+   - Display/hide with transitions
+
+6. CONTACT FORM (Lines 182-210)
+   - Form validation
+   - Required field checking
+   - Submit animation
+   - Success notification
+   - Form reset after submission
+   - Simulated submission delay
+
+7. SMOOTH SCROLLING (Lines 212-225)
+   - Anchor link interception
+   - Offset calculation (100px from top)
+   - Smooth scroll behavior
+   - Works with navbar links
+
+8. CAROUSEL AUTO-PLAY (Lines 227-233)
+   - 5-second interval
+   - Continuous loop
+   - Bootstrap carousel integration
+
+9. LAZY LOADING (Lines 235-250)
+   - Intersection Observer API
+   - Image lazy loading
+   - Performance optimization
+   - Bandwidth saving
+
+10. SEARCH & CART ICONS (Lines 252-265)
+    - Click event handlers
+    - Placeholder notifications
+    - Cart count display
+
+11. SCROLL ANIMATIONS (Lines 267-290)
+    - Intersection Observer for reveal
+    - Fade-in effect on scroll
+    - Transform animations
+    - Threshold-based triggering
+
+12. CATEGORY CARD CLICKS (Lines 292-305)
+    - Category name extraction
+    - Notification display
+    - Smooth scroll to products
+    - User feedback
+
+
+FEATURES & FUNCTIONALITIES
+================================================================================
+
+1. SMOOTH SCROLLING
+   - Technology: JavaScript scrollIntoView() API
+   - Behavior: Smooth easing animation
+   - Offset: 100px from top (accounts for navbar)
+   - Usage: All navigation links and anchor tags
+   - Benefit: Enhanced user experience, professional feel
+
+2. RESPONSIVE DESIGN
+   - Technology: Bootstrap 5 Grid + CSS Media Queries
+   - Breakpoints: 
+     * Desktop: > 991px
+     * Tablet: 768px - 991px
+     * Mobile: < 767px
+     * Small Mobile: < 575px
+   - Approach: Mobile-first design
+   - Benefit: Works perfectly on all devices
+
+3. STICKY NAVBAR
+   - Technology: CSS position: fixed + JavaScript scroll listener
+   - Effect: Shrinks on scroll (padding reduction)
+   - Shadow: Increases on scroll for depth
+   - Benefit: Always accessible navigation
+
+4. HERO CAROUSEL
+   - Technology: Bootstrap 5 Carousel component
+   - Features:
+     * 3 slides with auto-play
+     * 5-second intervals
+     * Fade transition
+     * Touch/swipe support
+     * Navigation indicators
+   - Benefit: Showcases multiple products/messages
+
+5. HOVER EFFECTS
+   - Technology: CSS3 transitions and transforms
+   - Effects:
+     * Image zoom (scale 1.03-1.05)
+     * Card lift (translateY -5px to -8px)
+     * Icon rotation (10deg)
+     * Color transitions
+     * Shadow enhancement
+   - Duration: 0.3s ease
+   - Benefit: Interactive, engaging UI
+
+6. ADD TO CART ANIMATION
+   - Technology: JavaScript DOM manipulation
+   - Effect:
+     * Button color change (green)
+     * Text change ("Added!")
+     * Cart counter increment
+     * Success notification
+   - Duration: 2 seconds
+   - Benefit: Clear user feedback
+
+7. NOTIFICATION SYSTEM
+   - Technology: JavaScript + CSS animations
+   - Types: Success (green), Info (brown), Error (red)
+   - Animation: Slide-in from right
+   - Auto-dismiss: 3 seconds
+   - Position: Fixed top-right
+   - Benefit: Non-intrusive user feedback
+
+8. SCROLL ANIMATIONS
+   - Technology: Intersection Observer API
+   - Effect: Fade-in + slide-up on scroll
+   - Threshold: 10% visibility
+   - Elements: Cards, features, products
+   - Benefit: Dynamic, modern feel
+
+9. SCROLL TO TOP BUTTON
+   - Technology: JavaScript + CSS
+   - Trigger: Scroll > 300px
+   - Animation: Fade in/out
+   - Effect: Smooth scroll to top
+   - Position: Fixed bottom-right
+   - Benefit: Easy navigation on long pages
+
+10. PRODUCT FILTERING
+    - Technology: JavaScript with data attributes
+    - Filters: Category, Price Range
+    - Sorting: Featured, Price, Rating
+    - Animation: Smooth fade
+    - Benefit: Easy product discovery
+
+11. FORM VALIDATION
+    - Technology: HTML5 validation + JavaScript
+    - Features:
+      * Required field checking
+      * Email format validation
+      * Visual feedback
+      * Error notifications
+    - Benefit: Data quality, user guidance
+
+12. LAZY LOADING
+    - Technology: Intersection Observer API
+    - Feature: Load images when visible
+    - Benefit: Faster initial load, bandwidth saving
+
+13. CSS CUSTOM PROPERTIES (VARIABLES)
+    - Technology: CSS3 Variables
+    - Usage: Colors, shadows, spacing
+    - Benefit: Easy theme customization, consistency
+
+14. GRADIENT OVERLAYS
+    - Technology: CSS3 linear-gradient
+    - Usage: Hero carousel, category cards
+    - Benefit: Text readability, visual depth
+
+15. BOX SHADOWS
+    - Technology: CSS3 box-shadow
+    - Levels: Small, Medium, Large
+    - Usage: Cards, buttons, navbar
+    - Benefit: Depth, elevation, modern look
+
+
+PERFORMANCE OPTIMIZATIONS
+================================================================================
+
+1. Debounce Function
+   - Limits function execution frequency
+   - Used for scroll events
+   - Improves performance
+
+2. Intersection Observer
+   - Efficient scroll detection
+   - Better than scroll event listeners
+   - Browser-optimized
+
+3. Lazy Loading
+   - Images load on demand
+   - Reduces initial page weight
+   - Faster first paint
+
+4. CSS Hardware Acceleration
+   - Transform and opacity animations
+   - GPU-accelerated
+   - Smooth 60fps animations
+
+5. Event Delegation
+   - Efficient event handling
+   - Reduced memory usage
+   - Better performance
+
+
+ACCESSIBILITY FEATURES
+================================================================================
+
+1. Semantic HTML
+   - Proper heading hierarchy
+   - Landmark elements (nav, main, footer)
+   - Descriptive link text
+
+2. ARIA Labels
+   - Breadcrumb navigation
+   - Carousel controls
+   - Form inputs
+
+3. Keyboard Navigation
+   - Tab-index management
+   - Focus indicators
+   - Accessible controls
+
+4. Color Contrast
+   - WCAG AA compliant
+   - Readable text colors
+   - Sufficient contrast ratios
+
+5. Alt Text
+   - All images have descriptive alt text
+   - Screen reader compatible
+
+
+BROWSER COMPATIBILITY
+================================================================================
+
+Supported Browsers:
+- Chrome/Edge (latest 2 versions)
+- Firefox (latest 2 versions)
+- Safari (latest 2 versions)
+- Opera (latest 2 versions)
+- Mobile browsers (iOS Safari, Chrome Mobile)
+
+CSS Features Used:
+- CSS Grid (95% browser support)
+- Flexbox (98% browser support)
+- CSS Variables (95% browser support)
+- Transitions (99% browser support)
+- Transform (99% browser support)
+
+
+CUSTOMIZATION GUIDE
+================================================================================
+
+Changing Colors:
+Edit CSS variables in style.css (lines 6-22):
+  --primary-brown: #8B6F47;
+  --dark-brown: #5C4A32;
+  --light-brown: #D4A574;
+
+Changing Fonts:
+Edit font-family in style.css (line 28):
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+Adding Products:
+Copy a product card structure in index.html and modify:
+  - Image URL
+  - Product name
+  - Price
+  - Rating
+  - Data attributes
+
+Changing Carousel Images:
+Edit background-image URLs in hero section (index.html lines 60-90)
+
+
+DEPLOYMENT RECOMMENDATIONS
+================================================================================
+
+1. Hosting Options:
+   - Netlify (free tier available)
+   - Vercel (free tier available)
+   - GitHub Pages (free)
+   - Any static hosting provider
+
+2. Performance:
+   - Minify CSS and JavaScript
+   - Compress images (WebP format)
+   - Enable gzip compression
+   - Use CDN for Bootstrap and Font Awesome
+
+3. SEO:
+   - Add meta description
+   - Include Open Graph tags
+   - Create sitemap.xml
+   - Add structured data (JSON-LD)
+
+4. Analytics:
+   - Google Analytics integration
+   - Heat mapping (Hotjar)
+   - Conversion tracking
+
+
+FUTURE ENHANCEMENT SUGGESTIONS
+================================================================================
+
+1. Backend Integration:
+   - Shopping cart system
+   - User authentication
+   - Product database
+   - Order management
+
+2. Advanced Features:
+   - Product quick view modal
+   - Wishlist functionality
+   - Product comparison
+   - Advanced search with autocomplete
+   - Product reviews and ratings system
+
+3. Payment Integration:
+   - Stripe
+   - PayPal
+   - Razorpay
+
+4. Marketing:
+   - Newsletter signup
+   - Live chat support
+   - Social media integration
+   - Product recommendations
+
+
+CONCLUSION
+================================================================================
+
+This Artisan furniture website is built with modern web standards and best 
+practices. It features a clean, professional design with smooth animations and 
+full responsiveness. The code is well-organized, commented, and easy to 
+customize for your specific needs.
+
+For questions or support, refer to:
+- Bootstrap 5 Documentation: https://getbootstrap.com/docs/5.3/
+- Font Awesome Icons: https://fontawesome.com/icons
+- MDN Web Docs: https://developer.mozilla.org/
+
+================================================================================
+                    END OF DOCUMENTATION
+================================================================================
